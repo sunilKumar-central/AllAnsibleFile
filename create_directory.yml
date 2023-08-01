@@ -1,0 +1,11 @@
+---
+- name: Creation Directory
+  hosts: all
+  become: true
+
+  tasks:
+   - name: create Sunuil Directory
+     file:
+       path: /home/durga/sunil
+       state: directory
+

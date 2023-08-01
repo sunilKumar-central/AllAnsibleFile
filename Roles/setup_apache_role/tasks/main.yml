@@ -1,0 +1,16 @@
+---
+# tasks file for setup_apache_role
+
+- name: install httpd
+  yum:
+    name: httpd
+    satte: installed
+  when: ansible_os_family == "RedHat"
+  notify: start httpd server
+- name: copy index.html file
+  copy:
+    src: /home/durga/index.html
+    dest: /var/www/html
+    mode: 0666
+
+

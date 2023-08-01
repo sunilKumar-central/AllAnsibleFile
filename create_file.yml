@@ -1,0 +1,10 @@
+---
+- name: Creating file 
+  hosts: all
+  become: true
+
+  tasks:
+    - name: creating Raj File
+      file:
+        path: /home/durga/rajfile
+        state: touch  

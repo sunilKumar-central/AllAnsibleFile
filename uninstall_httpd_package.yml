@@ -1,0 +1,11 @@
+---
+- name: Remove httpd package on Red Hat based systems
+  hosts: all
+  become: yes  # To escalate privileges as root (sudo)
+
+  tasks:
+    - name: Stop httpd package
+      service:
+          name: httpd
+          state: stopped
+

@@ -1,0 +1,10 @@
+---
+- name: copy files
+  hosts: all
+  become: true
+  tasks:
+    - name: copy index.html file to app nodes
+      copy:
+        src: /home/durga/index.html
+        dest: /home/durga
+

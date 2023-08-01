@@ -1,0 +1,8 @@
+---
+- name: this is used to create once more user
+  hosts: all
+  become: yes
+  tasks:
+   - name: this us create kumar user
+     user:
+       name: Kumar 

@@ -1,0 +1,17 @@
+---
+- name: testing
+  hosts: all
+  become: true
+  tasks:
+    - name: Install httpd pkg
+      yum:
+       name: httpd
+       state: installed
+      notify: start apache
+
+
+  handlers:
+   - name: start apache
+     service:
+       name: httpd
+       state: started

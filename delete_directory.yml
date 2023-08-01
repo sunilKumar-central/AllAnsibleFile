@@ -1,0 +1,11 @@
+---
+- name: Deleting a Durectory 
+  hosts: all
+  become: true
+
+  tasks:
+    - name: deleting directory sunil
+      file:
+       path: /home/durga/sunil
+       state: absent 
+

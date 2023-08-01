@@ -1,0 +1,37 @@
+---
+- name: Error_Handlling 
+  hosts: all
+  become: true
+  tasks:
+  - name: install httpd service in RedHat Matchin
+    yum:
+      name: httpd
+      state: installed
+    when: ansible_os_family == "RedHat"
+
+  - name: Start httpd service in RedHat Matchin
+    service:
+      name: http---         #Giving bug intensionally 
+      state: started
+    when: ansible_os_family == "RedHat"
+    ignore_errors: yes
+
+  - name: install Apache2 service
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: start Appache2 service
+    service:
+      name: apache2
+      state: started
+    when: ansible_os_family == "Debian"
+  
+  - name: copy index.html file to /var/www/html
+    copy:
+      src: /home/durga/index.html
+      dest: /var/www/html
+      mode: 0666   
+
+

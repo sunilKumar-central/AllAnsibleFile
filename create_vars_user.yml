@@ -1,0 +1,11 @@
+---
+- name: create variable module
+  hosts: webservers
+  become: true
+  vars:
+    user: sunny
+  tasks:
+    - name: create user variables {{user}}
+      user:
+        name: "{{user}}"
+          
